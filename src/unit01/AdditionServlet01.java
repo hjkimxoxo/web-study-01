@@ -43,23 +43,24 @@ public class AdditionServlet01 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-        int no = Integer.parseInt(request.getParameter("no"));
-        String name = request.getParameter("name");
-        Title newTitle = new Title(no, name);
+//        int no = Integer.parseInt(request.getParameter("no"));
+//        String name = request.getParameter("name");
+//        Title newTitle = new Title(no, name);
 
        // dao.insertTitle(newTitle);
         List<Title> list = dao.selectTitleByAll();
         for(Title t : list) {
             System.out.println(t);
         }
-        int num1 = Integer.parseInt(request.getParameter("num1"));
-        int num2 = Integer.parseInt(request.getParameter("num2"));
-        int add = num1 + num2;
-
-        request.setAttribute("num1", num1);
-        request.setAttribute("num2", num2);
-        request.setAttribute("add", add);
-        request.setAttribute("list", list);
+//        int num1 = Integer.parseInt(request.getParameter("num1"));
+//        int num2 = Integer.parseInt(request.getParameter("num2"));
+//        int add = num1 + num2;
+//
+//        request.setAttribute("num1", num1);
+//        request.setAttribute("num2", num2);
+//        request.setAttribute("add", add);
+        request.setAttribute("List", list);
+        //list라는 이름으로 저장 후 list를 forward시킨다는뜻
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("add.jsp");
         dispatcher.forward(request, response);
